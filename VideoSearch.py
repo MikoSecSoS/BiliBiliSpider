@@ -3,6 +3,8 @@
 import re
 import os
 import sys
+import time
+
 import requests
 
 from urllib.parse import unquote,quote
@@ -102,7 +104,7 @@ def parserData(json_data):
 		video_review = video["video_review"]
 		favorites = video["favorites"]
 		typename = video["typename"]
-		pubdate = video["pubdate"]
+		pubdate = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(video["pubdate"]))
 
 		yield {
 			"[AV号]": avid,
